@@ -183,28 +183,30 @@ void autonomous(void) {
       IntakeMiddle.setVelocity(100, percent);
       BallStop.set(false);
       WheelPiston.set(true);
+      Scraper1.set(true);
+      Scraper2.set(true);
       //drive_test();
-      chassis.drive_distance(30);
+      chassis.drive_distance(29);
       wait(200, msec);
       //turn in the direction of the goal
       chassis.turn_to_angle(90);
-      Scraper1.set(true);
-      Scraper2.set(true);
+      Scraper1.set(false);
+      Scraper2.set(false);
       wait(200, msec);
       IntakeBottom.spin(reverse);
       IntakeMiddle.spin(forward);
 
       chassis.drive_distance(15);
-      wait(100, msec);
+      wait(500, msec);
       chassis.drive_distance(-3);
       chassis.drive_distance(3);
-      wait(350, msec);
+      wait(1000, msec);
       IntakeBottom.stop();
       IntakeMiddle.stop();
       //run intake
       chassis.drive_distance(-13);
-      Scraper1.set(false);
-      Scraper2.set(false);
+      Scraper1.set(true);
+      Scraper2.set(true);
 
       // IntakeTop.stop();
       chassis.turn_to_angle(-93);
@@ -218,28 +220,21 @@ void autonomous(void) {
       IntakeMiddle.spin(forward);
       IntakeTop.spin(forward);
       wait(1000, msec);
-
-      chassis.drive_distance(-3);
+      chassis.drive_distance(-7);
       chassis.turn_to_angle(180);
-      chassis.drive_distance(16);
-      chassis.turn_to_angle(-130);
+      chassis.drive_distance(96);
+      chassis.turn_to_angle(90);
+      chassis.drive_distance(12);
       IntakeBottom.spin(reverse);
       IntakeMiddle.spin(forward);
+      wait(3000, msec);
+      chassis.drive_distance(-13);
+      chassis.turn_to_angle(-90);
+      chassis.drive_distance(15);
+      IntakeBottom.spin(forward);
+      IntakeMiddle.spin(reverse);
       IntakeTop.spin(reverse);
-      chassis.drive_distance(12);
-      wait(150, msec);
-      chassis.drive_distance(14);
-      chassis.turn_to_angle(-135);
-      BallStop.set(true);
-      IntakeBottom.spin(forward);
-      IntakeMiddle.spin(reverse);
-      IntakeTop.spin(forward);
-      wait(100, msec);
-      IntakeBottom.spin(forward);
-      IntakeMiddle.spin(reverse);
-      chassis.drive_distance(5);
-      // IntakeTop.spin(reverse);
-      WheelPiston.set(false);
+      wait(3000, msec);
       break;
     case 1:         
       break;
