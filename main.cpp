@@ -178,20 +178,21 @@ void autonomous(void) {
   auto_started = true;
   switch(current_auton_selection){ 
     case 0:
+      //to put scraper down set it to true
+      Scraper1.set(false);
+      Scraper2.set(false);
       IntakeTop.setVelocity(100, percent);
       IntakeBottom.setVelocity(100, percent);
       IntakeMiddle.setVelocity(100, percent);
       BallStop.set(false);
       WheelPiston.set(true);
-      Scraper1.set(true);
-      Scraper2.set(true);
       //drive_test();
       chassis.drive_distance(29);
       wait(200, msec);
       //turn in the direction of the goal
       chassis.turn_to_angle(90);
-      Scraper1.set(false);
-      Scraper2.set(false);
+      Scraper1.set(true);
+      Scraper2.set(true);
       wait(200, msec);
       IntakeBottom.spin(reverse);
       IntakeMiddle.spin(forward);
@@ -205,8 +206,8 @@ void autonomous(void) {
       IntakeMiddle.stop();
       //run intake
       chassis.drive_distance(-13);
-      Scraper1.set(true);
-      Scraper2.set(true);
+      Scraper1.set(false);
+      Scraper2.set(false);
 
       // IntakeTop.stop();
       chassis.turn_to_angle(-93);
