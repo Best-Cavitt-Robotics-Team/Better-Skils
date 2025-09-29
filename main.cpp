@@ -133,7 +133,7 @@ void pre_auton() {
     Brain.Screen.printAt(5, 120, "Selected Auton:");
     switch(current_auton_selection){
       case 0:
-        Brain.Screen.printAt(5, 140, "Blue Right and Right Red");
+        Brain.Screen.printAt(5, 140, "Prog Skills");
         break;
       case 1:
         Brain.Screen.printAt(5, 140, "Blue Left and Red Left");
@@ -178,16 +178,13 @@ void autonomous(void) {
   auto_started = true;
   switch(current_auton_selection){ 
     case 0:
-      //to put scraper down set it to true
-      Scraper1.set(false);
-      Scraper2.set(false);
       IntakeTop.setVelocity(100, percent);
       IntakeBottom.setVelocity(100, percent);
       IntakeMiddle.setVelocity(100, percent);
       BallStop.set(false);
-      WheelPiston.set(true);
-      //drive_test();
-      chassis.drive_distance(29);
+      Scraper1.set(false);
+      Scraper2.set(false);
+      chassis.drive_distance(31);
       wait(200, msec);
       //turn in the direction of the goal
       chassis.turn_to_angle(90);
@@ -197,10 +194,52 @@ void autonomous(void) {
       IntakeBottom.spin(reverse);
       IntakeMiddle.spin(forward);
 
-      chassis.drive_distance(15);
+      chassis.drive_distance(14.25);
+      wait(250, msec);
+      chassis.drive_distance(-5);
+      chassis.drive_distance(6);
+      wait(1250, msec);
+      IntakeBottom.stop();
+      IntakeMiddle.stop();
+      //run intake
+      chassis.drive_distance(-4);
+      Scraper1.set(false);
+      Scraper2.set(false);
+
+      // IntakeTop.stop();
+      chassis.turn_to_angle(-93);
+      chassis.drive_distance(8);
+      chassis.turn_to_angle(-87);
+      chassis.drive_distance(7);
+      //run intake
+      IntakeBottom.spin(forward);
+      IntakeMiddle.spin(reverse);
+      IntakeTop.spin(reverse);
+      wait(1500, msec);
+      IntakeBottom.spin(reverse);
+      IntakeMiddle.spin(forward);
+      IntakeTop.spin(forward);
+      wait(1000, msec);
+      chassis.drive_distance(-12);
+      chassis.turn_to_angle(180);
+      chassis.drive_distance(12);
+      chassis.turn_to_angle(-90);
+      chassis.drive_distance(96);
+      chassis.turn_to_angle(0);
+      chassis.drive_distance(12);
+      chassis.turn_to_angle(-90);
+
+      Scraper1.set(true);
+      Scraper2.set(true);
+      wait(200, msec);
+      IntakeBottom.spin(reverse);
+      IntakeMiddle.spin(forward);
+
+      //pick up blocks from loader and score maneuver
+      chassis.drive_distance(26);
       wait(500, msec);
-      chassis.drive_distance(-3);
-      chassis.drive_distance(3);
+      chassis.drive_distance(-5);
+      chassis.drive_distance(5);
       wait(1000, msec);
       IntakeBottom.stop();
       IntakeMiddle.stop();
@@ -208,9 +247,8 @@ void autonomous(void) {
       chassis.drive_distance(-13);
       Scraper1.set(false);
       Scraper2.set(false);
-
       // IntakeTop.stop();
-      chassis.turn_to_angle(-93);
+      chassis.turn_to_angle(93);
       chassis.drive_distance(15);
       //run intake
       IntakeBottom.spin(forward);
@@ -221,21 +259,6 @@ void autonomous(void) {
       IntakeMiddle.spin(forward);
       IntakeTop.spin(forward);
       wait(1000, msec);
-      chassis.drive_distance(-7);
-      chassis.turn_to_angle(180);
-      chassis.drive_distance(96);
-      chassis.turn_to_angle(90);
-      chassis.drive_distance(12);
-      IntakeBottom.spin(reverse);
-      IntakeMiddle.spin(forward);
-      wait(3000, msec);
-      chassis.drive_distance(-13);
-      chassis.turn_to_angle(-90);
-      chassis.drive_distance(15);
-      IntakeBottom.spin(forward);
-      IntakeMiddle.spin(reverse);
-      IntakeTop.spin(reverse);
-      wait(3000, msec);
       break;
     case 1:         
       break;
