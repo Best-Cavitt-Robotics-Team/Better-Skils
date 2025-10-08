@@ -124,16 +124,16 @@ void pre_auton() {
   default_constants();
 
   while(!auto_started){
-    // Brain.Screen.clearScreen();
-    // Brain.Screen.printAt(5, 20, "JAR Template v1.2.0");
-    // Brain.Screen.printAt(5, 40, "Battery Percentage:");
-    // Brain.Screen.printAt(5, 60, "%d", Brain.Battery.capacity());
+    Brain.Screen.clearScreen();
+    Brain.Screen.printAt(5, 20, "JAR Template v1.2.0");
+    Brain.Screen.printAt(5, 40, "Battery Percentage:");
+    Brain.Screen.printAt(5, 60, "%d", Brain.Battery.capacity());
     Brain.Screen.printAt(5, 80, "Chassis Heading Reading:");
     Brain.Screen.printAt(5, 100, "%f", chassis.get_absolute_heading());
-    // Brain.Screen.printAt(5, 120, "Selected Auton:");
+    Brain.Screen.printAt(5, 120, "Selected Auton:");
     switch(current_auton_selection){
       case 0:
-        Brain.Screen.printAt(5, 140, "Blue Right and Right Red");
+        Brain.Screen.printAt(5, 140, "Prog Skills");
         break;
       case 1:
         Brain.Screen.printAt(5, 140, "Blue Left and Red Left");
@@ -178,130 +178,10 @@ void autonomous(void) {
   auto_started = true;
   switch(current_auton_selection){ 
     case 0:
-      LeftBack.setVelocity(100, percent);
-      LeftMiddle.setVelocity(100, percent);
-      LeftFront.setVelocity(100, percent);
-
-      RightBack.setVelocity(100, percent);
-      RightMiddle.setVelocity(100, percent);
-      RightFront.setVelocity(100, percent);
-      //to put scraper down set it to true
-
-      //set intake velocity
-      IntakeTop.setVelocity(100, percent);
-      IntakeBottom.setVelocity(100, percent);
-      IntakeMiddle.setVelocity(100, percent);
-
-      //put all pistons up
-      BallStop.set(false);
-      Scraper1.set(false);
-      Scraper2.set(false);
-
-      // move forward to match loader
-      chassis.drive_distance(31);
-      chassis.turn_to_angle(0);
-      wait(200, msec);
-
-      //turn in the direction of the goal
-      chassis.turn_to_angle(90);
-
-      //put scraper down
-      Scraper1.set(true);
-      Scraper2.set(true);
-      wait(200, msec);
-
-      //start intake
-      IntakeBottom.spin(reverse);
-      IntakeMiddle.spin(forward);
-
-      //drive into matchloading zone
-      LeftBack.setVelocity(50, percent);
-      LeftMiddle.setVelocity(50, percent);
-      LeftFront.setVelocity(50, percent);
-
-      RightBack.setVelocity(50, percent);
-      RightMiddle.setVelocity(50, percent);
-      RightFront.setVelocity(50, percent);
-      wait(500, msec);
-      chassis.drive_distance(12);
-      wait(1500, msec);
-      //run intake
-      chassis.drive_distance(-8);
-      IntakeBottom.stop();
-      IntakeMiddle.stop();
-      IntakeTop.stop();
-      Scraper1.set(false);
-      Scraper2.set(false);
-
-      // IntakeTop.stop();
-      LeftBack.setVelocity(100, percent);
-      LeftMiddle.setVelocity(100, percent);
-      LeftFront.setVelocity(100, percent);
-
-      RightBack.setVelocity(100, percent);
-      RightMiddle.setVelocity(100, percent);
-      RightFront.setVelocity(100, percent);
-      wait(500, msec);
-
-      chassis.turn_to_angle(-80);
-      chassis.drive_distance(8);
-      chassis.turn_to_angle(-90);
-      chassis.drive_distance(10);
-      //run intake
-      IntakeBottom.spin(forward);
-      IntakeMiddle.spin(reverse);
-      IntakeTop.spin(reverse);
-      wait(100, msec);
-      IntakeBottom.spin(reverse);
-      IntakeMiddle.spin(forward);
-      IntakeTop.spin(forward);
-      wait(1500, msec);
-
-
-
-
-
-      // chassis.drive_distance(-12);
-      // chassis.turn_to_angle(180);
-      // chassis.drive_distance(12);
-      // chassis.turn_to_angle(-90);
-      // chassis.drive_distance(96);
-      // chassis.turn_to_angle(0);
-      // chassis.drive_distance(12);
-      // chassis.turn_to_angle(-90);
-
-      // Scraper1.set(true);
-      // Scraper2.set(true);
-      // wait(200, msec);
-      // IntakeBottom.spin(reverse);
-      // IntakeMiddle.spin(forward);
-
-      // //pick up blocks from loader and score maneuver
-      // chassis.drive_distance(26);
-      // wait(500, msec);
-      // chassis.drive_distance(-5);
-      // chassis.drive_distance(5);
-      // wait(1000, msec);
-      // IntakeBottom.stop();
-      // IntakeMiddle.stop();
-      // //run intake
-      // chassis.drive_distance(-13);
-      // Scraper1.set(false);
-      // Scraper2.set(false);
-      // // IntakeTop.stop();
-      // chassis.turn_to_angle(93);
-      // chassis.drive_distance(15);
-      // //run intake
-      // IntakeBottom.spin(forward);
-      // IntakeMiddle.spin(reverse);
-      // IntakeTop.spin(reverse);
-      // wait(150, msec);
-      // IntakeBottom.spin(reverse);
-      // IntakeMiddle.spin(forward);
-      // IntakeTop.spin(forward);
-      // wait(1000, msec);
+      better_skils();
       break;
-    case 1:         
+    case 1:
+      coords_skils();          
       break;
     case 2:
       turn_test();
