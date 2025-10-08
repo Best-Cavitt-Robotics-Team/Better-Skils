@@ -275,3 +275,232 @@ void blue_left(){
   // IntakeBottom.stop();
   // IntakeMiddle.stop();
 }
+
+void coords_skils() {;
+    
+      odom_constants();
+      chassis.set_coordinates(88.3, 24, 90);
+      IntakeTop.setVelocity(100, percent);
+      IntakeBottom.setVelocity(100, percent);
+      IntakeMiddle.setVelocity(100, percent);
+      BallStop.set(false);
+      Scraper1.set(false);
+      Scraper2.set(false);
+      chassis.drive_to_pose(115, 24, 90);
+      wait(200, msec);
+      //turn in the direction of the goal
+      chassis.turn_to_angle(180);
+      Scraper1.set(true);
+      Scraper2.set(true);
+      wait(750, msec);
+      IntakeBottom.spin(reverse);
+      IntakeMiddle.spin(forward);
+
+      chassis.drive_to_point(110.3, 4);
+
+      wait(1500, msec);
+      IntakeBottom.stop();
+      IntakeMiddle.stop();
+      //run intake
+      chassis.drive_distance(-6);
+      Scraper1.set(false);
+      Scraper2.set(false);
+      chassis.turn_to_angle(0);
+      // IntakeTop.stop();
+      chassis.drive_to_pose(116, 45, 0);
+      
+      //run intake
+      IntakeBottom.spin(forward);
+      IntakeMiddle.spin(reverse);
+      IntakeTop.spin(reverse);
+      wait(150, msec);
+      IntakeBottom.spin(reverse);
+      IntakeMiddle.spin(forward);
+      IntakeTop.spin(forward);
+      wait(1500, msec);
+      chassis.drive_to_pose(120, 11, 0);
+      chassis.turn_to_angle(-90);
+      chassis.drive_to_point(108, 11);
+      chassis.turn_to_angle(0);
+      chassis.drive_to_pose(108, 107, 0);
+      chassis.turn_to_angle(90);
+      chassis.drive_to_pose(112, 107, 90);
+      chassis.turn_to_angle(0);
+
+      Scraper1.set(true);
+      Scraper2.set(true);
+      wait(200, msec);
+      IntakeBottom.spin(reverse);
+      IntakeMiddle.spin(forward);
+
+      //pick up blocks from loader and score maneuver
+      chassis.drive_to_pose(112, 133, 0);
+      wait(500, msec);
+      chassis.drive_to_pose(112, 128, 0);
+      chassis.drive_to_pose(112, 133, 0);
+      wait(1000, msec);
+      IntakeBottom.stop();
+      IntakeMiddle.stop();
+      //run intake
+      chassis.drive_to_pose(112, 120, 0);
+      Scraper1.set(false);
+      Scraper2.set(false);
+      // IntakeTop.stop();
+      chassis.turn_to_angle(180);
+      chassis.drive_to_pose(112, 105, 180);
+      //run intake
+      IntakeBottom.spin(forward);
+      IntakeMiddle.spin(reverse);
+      IntakeTop.spin(reverse);
+      wait(150, msec);
+      IntakeBottom.spin(reverse);
+      IntakeMiddle.spin(forward);
+      IntakeTop.spin(forward);
+      wait(1000, msec);
+};
+
+void better_skils() {;
+      LeftBack.setVelocity(100, percent);
+      LeftMiddle.setVelocity(100, percent);
+      LeftFront.setVelocity(100, percent);
+
+      RightBack.setVelocity(100, percent);
+      RightMiddle.setVelocity(100, percent);
+      RightFront.setVelocity(100, percent);
+      //to put scraper down set it to true
+
+      //set intake velocity
+      IntakeTop.setVelocity(100, percent);
+      IntakeBottom.setVelocity(100, percent);
+      IntakeMiddle.setVelocity(100, percent);
+
+      //put all pistons up
+      BallStop.set(false);
+      Scraper1.set(false);
+      Scraper2.set(false);
+
+      // move forward to match loader
+      chassis.drive_distance(31);
+      chassis.turn_to_angle(0);
+      wait(200, msec);
+
+      //turn in the direction of the goal
+      chassis.turn_to_angle(90);
+
+      //put scraper down
+      Scraper1.set(true);
+      Scraper2.set(true);
+      wait(200, msec);
+
+      //start intake
+      IntakeBottom.spin(reverse);
+      IntakeMiddle.spin(forward);
+
+      //drive into matchloading zone
+      LeftBack.setVelocity(50, percent);
+      LeftMiddle.setVelocity(50, percent);
+      LeftFront.setVelocity(50, percent);
+
+      RightBack.setVelocity(50, percent);
+      RightMiddle.setVelocity(50, percent);
+      RightFront.setVelocity(50, percent);
+      wait(500, msec);
+      chassis.drive_distance(14);
+      wait(1500, msec);
+      // chassis.drive_distance(-5);
+      // chassis.drive_distance(5);
+      // wait(1000, msec);
+      //run intake
+      chassis.drive_distance(-8);
+      IntakeBottom.stop();
+      IntakeMiddle.stop();
+      IntakeTop.stop();
+      Scraper1.set(false);
+      Scraper2.set(false);
+
+      // IntakeTop.stop();
+      LeftBack.setVelocity(100, percent);
+      LeftMiddle.setVelocity(100, percent);
+      LeftFront.setVelocity(100, percent);
+
+      RightBack.setVelocity(100, percent);
+      RightMiddle.setVelocity(100, percent);
+      RightFront.setVelocity(100, percent);
+      wait(500, msec);
+
+      chassis.turn_to_angle(-80);
+      chassis.drive_distance(8);
+      chassis.turn_to_angle(-92);
+      chassis.drive_distance(10);
+      //run intake
+      IntakeBottom.spin(forward);
+      IntakeMiddle.spin(reverse);
+      IntakeTop.spin(reverse);
+      wait(150, msec);
+      IntakeBottom.spin(reverse);
+      IntakeMiddle.spin(forward);
+      IntakeTop.spin(forward);
+      wait(1500, msec);
+
+      IntakeBottom.stop();
+      IntakeMiddle.stop();
+      IntakeTop.stop();
+
+
+      chassis.drive_distance(-12);
+      wait(150, msec);
+      chassis.turn_to_angle(180);
+      wait(150, msec);
+      chassis.drive_distance(101);
+      wait(150, msec);
+      chassis.turn_to_angle(94);
+
+
+      Scraper1.set(true);
+      Scraper2.set(true);
+      wait(200, msec);
+      IntakeBottom.spin(reverse);
+      IntakeMiddle.spin(forward);
+
+      //pick up blocks from loader and score maneuver
+      chassis.drive_distance(23);
+      wait(500, msec);
+      chassis.drive_distance(-5);
+      chassis.drive_distance(5);
+      wait(1000, msec);
+      IntakeBottom.stop();
+      IntakeMiddle.stop();
+      //run intake
+      chassis.drive_distance(-13);
+      Scraper1.set(false);
+      Scraper2.set(false);
+      // IntakeTop.stop();
+      chassis.turn_to_angle(-84);
+      chassis.drive_distance(15);
+      //run intake
+      IntakeBottom.spin(forward);
+      IntakeMiddle.spin(reverse);
+      IntakeTop.spin(reverse);
+      wait(150, msec);
+      IntakeBottom.spin(reverse);
+      IntakeMiddle.spin(forward);
+      IntakeTop.spin(forward);
+      wait(1000, msec);
+      IntakeBottom.stop();
+      IntakeMiddle.stop();
+      IntakeTop.stop();
+
+      //go from scorey thingy to parky thingy
+      chassis.drive_distance(-20);
+      chassis.turn_to_angle(0);
+      chassis.drive_distance(24);
+      chassis.turn_to_angle(90);
+      chassis.drive_distance(15);
+      chassis.turn_to_angle(0);
+      chassis.drive_distance(20);
+
+
+
+
+
+    };    
