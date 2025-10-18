@@ -178,7 +178,7 @@ void autonomous(void) {
   auto_started = true;
   switch(current_auton_selection){ 
     case 0:
-      better_skils();
+      blue_right();
       break;
     case 1:
       coords_skils();          
@@ -225,7 +225,7 @@ void usercontrol(void) {
     // Insert user code here. This is where you use the joystick values to
     // update your motors, etc.
     // ........................................................................
-    WheelPiston.set(false);
+    BallStop.set(false);
 
     LeftBack.setVelocity(100, percent);
     LeftMiddle.setVelocity(100, percent);
@@ -244,19 +244,20 @@ void usercontrol(void) {
     // RightMiddle.spin(forward, Controller.Axis2.position(), volt);
     // RightFront.spin(forward, Controller.Axis2.position(), volt);
 
-    double turnVal = Controller.Axis1.position(percent);
-    double forwardVal = Controller.Axis3.position(percent);
+    // double turnVal = Controller.Axis1.position(percent);
+    // double forwardVal = Controller.Axis3.position(percent);
 
-    double turnVolts = turnVal * 0.12;
-    double forwadsVolts = forwardVal * 0.12;
+    // double turnVolts = turnVal * 0.12;
+    // double forwadsVolts = forwardVal * 0.12;
+
 
     
     LeftBack.spin(forward, (Controller.Axis3.position()+Controller.Axis1.position()), percent); //if doesnt work change volt to percent
-    LeftMiddle.spin(forward, (Controller.Axis3.position()+Controller.Axis1.position()), volt);
+    LeftMiddle.spin(forward, (Controller.Axis3.position()+Controller.Axis1.position()), percent);
     LeftFront.spin(forward, (Controller.Axis3.position()+Controller.Axis1.position()), percent);
 
     RightBack.spin(forward, (Controller.Axis3.position()-Controller.Axis1.position()), percent);
-    RightMiddle.spin(forward, (Controller.Axis3.position()-Controller.Axis1.position()), volt);
+    RightMiddle.spin(forward, (Controller.Axis3.position()-Controller.Axis1.position()), percent);
     RightFront.spin(forward, (Controller.Axis3.position()-Controller.Axis1.position()), percent);
 
 
@@ -291,6 +292,8 @@ void usercontrol(void) {
     else if(Controller.ButtonL2.pressing()){
       IntakeBottom.spin(reverse);
       IntakeMiddle.spin(forward);
+      //IntakeTop.stop(hold);
+      IntakeTop.setStopping(brakeType::hold);
     }
     else{
       IntakeBottom.stop();
@@ -319,6 +322,15 @@ void usercontrol(void) {
     if(Controller.ButtonY.pressing()){
       Scraper1.off();
       Scraper2.off();
+    }
+
+    
+    if(Controller.ButtonA.pressing()){
+      Descore.on();
+    }
+
+    if(Controller.ButtonB.pressing()){
+      Descore.off();
     }
     
     

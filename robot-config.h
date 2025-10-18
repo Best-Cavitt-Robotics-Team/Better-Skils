@@ -23,8 +23,8 @@ extern inertial Inertial;
 
 extern led Scraper1;
 extern led Scraper2;
+extern led Descore;
 extern led BallStop;
-extern led WheelPiston;
 
 extern rotation VerticalOdom;
 extern rotation HorizontalOdom;
