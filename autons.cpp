@@ -135,7 +135,6 @@ void blue_right() {
   IntakeBottom.setVelocity(100, percent);
   IntakeMiddle.setVelocity(100, percent);
   BallStop.set(false);
-  WheelPiston.set(true);
   //drive_test();
   chassis.drive_distance(30);
   wait(200, msec);
@@ -192,7 +191,6 @@ void blue_right() {
   IntakeMiddle.spin(reverse);
   chassis.drive_distance(5);
   // IntakeTop.spin(reverse);
-  WheelPiston.set(false);
 }
 
 void blue_left(){
@@ -200,7 +198,6 @@ void blue_left(){
   IntakeBottom.setVelocity(100, percent);
   IntakeMiddle.setVelocity(100, percent);
   BallStop.set(false);
-  WheelPiston.set(true);
   //drive_test();
   chassis.drive_distance(30);
   wait(200, msec);
@@ -269,7 +266,6 @@ void blue_left(){
   IntakeBottom.spin(reverse);
   IntakeMiddle.spin(forward);
   IntakeTop.spin(reverse);
-  WheelPiston.set(false);
    //pick up triangle blocks
   // wait(150, msec);
   // IntakeBottom.stop();
