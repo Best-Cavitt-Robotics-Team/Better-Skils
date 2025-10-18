@@ -178,10 +178,10 @@ void autonomous(void) {
   auto_started = true;
   switch(current_auton_selection){ 
     case 0:
-      blue_right();
+      blue_left();
       break;
     case 1:
-      coords_skils();          
+      blue_right();          
       break;
     case 2:
       turn_test();
